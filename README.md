@@ -136,9 +136,11 @@ To terminate the containers, pods and services in the Kubernetes cluster, run th
 
 ```
 kubectl delete deployment leaderboard-service
-```
+
 kubectl delete deployment leaderboard-redis
 ```
+
+To stop the Kubernetes cluster, run the following command.  
 
 ```
 minikube stop
