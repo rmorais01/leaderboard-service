@@ -71,6 +71,7 @@ which is reliable and scalable. You can increase the replicas by updating the re
 changes with the same command as above. Kubernetes will apply the changes. 
 
 At this point, we no longer need our initial Redis master as the sentinels will monitor the servers and elect a new master on failure. 
+
 You can delete the master as follows,
 
 ```
@@ -118,11 +119,13 @@ minikube service leaderboard-service --url
 To quickly test our deployment, we will use curl to post a few scores and then get the results. 
 
 Add a few scores, by running this REST API with different player names and scores.
+
 ```
 curl -d "player=Joe&score=85" -X POST http://<ip>:30025/api/setscore
 ```
 
 Get the leaderboard by running this REST API
+
 ```
 curl http://<ip>:30025/api/setscore/getleaderboard
 ```
@@ -133,7 +136,6 @@ To terminate the containers, pods and services in the Kubernetes cluster, run th
 
 ```
 kubectl delete deployment leaderboard-service
-
 ```
 kubectl delete deployment leaderboard-redis
 ```
@@ -141,8 +143,3 @@ kubectl delete deployment leaderboard-redis
 ```
 minikube stop
 ```
-
-
-## Authors
-
-* **Rodolfo Morais
