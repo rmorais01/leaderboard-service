@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+      name: leaderboard-redis
+      role: master 
+    name: leaderboard-redis-master
+spec:
+  selector:
+    matchLabels:
+      name: leaderboard-redis
+  template:
+    metadata:
+      labels:
+        name: leaderboard-redis
+        role: redis-master
+    spec:
+      containers:
+        - name: leaderboard-redis
+          image: index.docker.io/rmorais01/samples:redis 
+          env:
+            - name: MASTER
+              value: "true"
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - mountPath: /redis-master-data
+              name: data
+        - name: sentinel
+          image: index.docker.io/rmorais01/samples:redis
+          env:
+           - name: SENTINEL
+             value: "true"
+          ports:
+           - containerPort: 26379 
+      volumes:
+      - name: data
+        emptyDir: {}
+---
