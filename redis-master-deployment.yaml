@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: leaderboard-redis
-          image: index.docker.io/rmorais01/samples:redis 
+          image: index.docker.io/rmorais01/redis:v1
           env:
             - name: MASTER
               value: "true"
@@ -27,7 +27,7 @@ spec:
             - mountPath: /redis-master-data
               name: data
         - name: sentinel
-          image: index.docker.io/rmorais01/samples:redis
+          image: index.docker.io/rmorais01/redis:v1
           env:
            - name: SENTINEL
              value: "true"
