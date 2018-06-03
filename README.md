@@ -66,7 +66,7 @@ Now we can add, replicas to scale the Redis deployment. The redis-deployment.yam
 kubectl apply -f redis-deployment.yaml
 ```
 
-This will create three pods with replicas of the Redis server and sentinel on each pod. We now have a fully automated Kubernetes deployment, which is reliable and scalable. You can increase the replicas by updating the replicas specified in redis-deployment.yaml and applying the changes with the same command as above. Kubernetes will apply the changes. 
+This will create three pods with replicas of the Redis server and sentinel on each pod. We now have a fully automated Kubernetes deployment, which is reliable and scalable. You can increase the replicas by updating the replicas specified in redis-deployment.yaml and applying the changes with the same command as above. Kubernetes will manage the changes. 
 
 Verify that there are now three pods with Redis slave and sentinel running.
 
@@ -122,9 +122,9 @@ minikube service leaderboard-service --url
 
 ## Testing
 
-To quickly test our deployment, we will use curl to post a few scores and then get the results. 
+To quickly test the deployment, we will use curl to post a few scores and then get the results. 
 
-Add a few scores, by running the following REST API with different player names and scores. You can update a player's ranking by posting a new score.
+Add a few scores, by running the following REST API with different player names and scores. You can also update a player's ranking by posting a new score.
 
 ```
 curl -d "player=Joe&score=85" -X POST http://<IP>:30025/api/setscore
