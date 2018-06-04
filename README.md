@@ -133,7 +133,7 @@ curl -d "player=Joe&score=85" -X POST http://<IP>:30025/api/setscore
 Get the leaderboard by running the following REST API
 
 ```
-curl http://<IP>:30025/api/setscore/getleaderboard
+curl http://<IP>:30025/api/getleaderboard
 ```
 
 Additionally, you can also test that a pod failure is handled by Kubernetes by creating a new pod, so that the desired number of pod replicas are always maintained.  
