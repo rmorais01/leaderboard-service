@@ -1,6 +1,6 @@
-# Leaderboard Microservice using Node.js, Redis and Kubernetes     
+# Microservice Deployment on a Kubernetes Cluster     
 
-A simple leaderboard microservice example using Node.js and Redis to demonstrate deployment and scaling of a Kubernetes cluster. 
+A simple leaderboard microservice example using Node.js and Redis to demonstrate deployment and scaling on a Kubernetes cluster. 
 
 The deployment uses a master Redis with replicated slaves, as well as replicated sentinels for high availability.
 
@@ -133,10 +133,10 @@ curl -d "player=Joe&score=85" -X POST http://<IP>:30025/api/setscore
 Get the leaderboard by running the following REST API
 
 ```
-curl http://<IP>:30025/api/setscore/getleaderboard
+curl http://<IP>:30025/api/getleaderboard
 ```
 
-Additionally, you can also test that a pod failure is handled by Kebernetes by creating a new pod, so that the desired number of pod replicas are always maintained.  
+Additionally, you can also test that a pod failure is handled by Kubernetes by creating a new pod, so that the desired number of pod replicas are always maintained.  
 
 ```
 kubectl get pods
