@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 */
 router.get('/getleaderboard', function(req, res) {
       var redisClient = req.redisClient;
-      redisClient.zrevrange('scores', "0", "4", function (err, reply) {
+      redisClient.zrevrange('scores', "0", "5", function (err, reply) {
           if (reply) {
               var results = reply;
               res.json(results);
